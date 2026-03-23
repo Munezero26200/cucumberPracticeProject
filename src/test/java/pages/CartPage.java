@@ -42,16 +42,19 @@ public class CartPage extends BasePage{
         String actualTitle = cartPageTitle.getText();
         Assert.assertEquals(actualTitle, "Cart");
     }
-    public void productDisplayedInCart(Integer quantity, Product product){
-        By productEl = By.xpath("//a[text()='" + product.getProductName() + "']");
+    public void productDisplayedInCart(Integer quantity, Product product) {
+        By productLocator = By.xpath("//a[text()='" + product.getProductName() + "']");
 
+        WebElement productEl = wait.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
+
+        // Get values
         String actualQty = qtyLocator.getAttribute("value");
-        String actualProduct = driver.findElement(productEl).getText();
+        String actualProduct = productEl.getText();
 
         Assert.assertEquals(actualProduct, product.getProductName(), "Wrong added product");
-        Assert.assertEquals(Integer.parseInt(actualQty), quantity, "Wrong quantity of product");
-
+        Assert.assertEquals(Integer.parseInt(actualQty), quantity.intValue(), "Wrong quantity of product");
     }
+
 
     public void allProductAddedAreVisible(DataTable dataTable){
         List<String> products = dataTable.asList();
