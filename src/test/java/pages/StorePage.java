@@ -16,7 +16,7 @@ public class StorePage extends BasePage{
     }
 
     @FindBy(css = "button[name='add-to-cart']") private WebElement addToCartBtn;
-    @FindBy(xpath = "//span[@class='count']") private WebElement cartIcon;
+    @FindBy(xpath = "(//span[@class='count'])[1]") private WebElement cartIcon;
 
 
 
@@ -36,7 +36,7 @@ public class StorePage extends BasePage{
             ));
             addToCartBtn.click();
 
-            // confirms item was added(by seeing the view cart link)
+
             wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(@aria-label,'" + product + "') and contains(@class,'added')]")
             ));
