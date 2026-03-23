@@ -44,6 +44,7 @@ public class StorePage extends BasePage{
     }
 
     public void clickOnCartIcon(){
-        cartIcon.click();
+        WebElement visibleCartIcon = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
+        visibleCartIcon.click();
     }
 }
