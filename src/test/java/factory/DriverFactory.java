@@ -13,11 +13,14 @@ public class DriverFactory {
         switch (browser){
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless=new"); //modern headless mode
-                options.addArguments("--disable-gpu");//good practice in CI
-                options.addArguments("--window-size=1920,1080");//ensure consistent viewport
-                driver = new ChromeDriver();
+                options.addArguments("--headless=new");       // modern headless mode
+                options.addArguments("--disable-gpu");        // avoid GPU issues in CI
+                options.addArguments("--no-sandbox");         // required in GitHub runners
+                options.addArguments("--disable-dev-shm-usage"); // prevent shared memory errors
+                options.addArguments("--window-size=1920,1080"); // consistent viewport
+                driver = new ChromeDriver(options);
                 break;
+
 
 
             case "firefox":
