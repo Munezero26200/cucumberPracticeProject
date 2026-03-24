@@ -31,7 +31,7 @@ public class DriverFactory {
                 throw new IllegalStateException("INVALID BROWSER" + browser);
         }
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.get(ConfigLoader.getInstance().getBaseUrl());
         return driver;
     }
