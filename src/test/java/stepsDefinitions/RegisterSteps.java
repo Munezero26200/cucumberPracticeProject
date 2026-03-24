@@ -20,16 +20,17 @@ public class RegisterSteps {
 
     @When("I register with credentials set {int}")
     public void registerWithValidCredentials(int credentialSet) {
+        String uniqueEmail = "testUser" + System.currentTimeMillis() + "@gmail.com";
         if(credentialSet == 1){
             accountPage.enterRegCredentials(
                     EnvConfig.getRegUsername1(),
-                    EnvConfig.getRegEmail1(),
+                    uniqueEmail,
                     EnvConfig.getRegPassword1()
             );
         }else if(credentialSet == 2){
             accountPage.enterRegCredentials(
                     EnvConfig.getRegUsername2(),
-                    EnvConfig.getRegEmail2(),
+                    uniqueEmail,
                     EnvConfig.getRegPassword2()
             );
         }

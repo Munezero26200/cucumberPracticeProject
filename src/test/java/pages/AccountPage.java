@@ -43,8 +43,11 @@ public class AccountPage extends BasePage{
     }
     public void checkYouReachOnDashboard()  {
         wait.until(ExpectedConditions.urlContains("/account"));
+        String welcome = getWelcomeMsg();
+        Assert.assertTrue(welcome.contains("Hello"), "Not logged in, welcome message missing");
+        //then check dashboard nav
         WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("(//nav[@class='woocommerce-MyAccount-navigation']//ul/li/a)[1]")
+                By.cssSelector("nav.woocommerce-MyAccount-navigation ul li a")
         ));
         dashboardNav.getText();
 
@@ -76,6 +79,8 @@ public class AccountPage extends BasePage{
     public void clickRegisterBtn(){
         WebElement registerButton = wait.until(ExpectedConditions.visibilityOf(registerBtn));
         registerButton.click();
+        System.out.println(driver.getPageSource());
     }
+
 
 }
