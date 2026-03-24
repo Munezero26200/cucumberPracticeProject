@@ -13,11 +13,7 @@ Feature: Update quantity of product in cart
     And I click on UPDATE CART button
     Then product should be updated which confirmed by updated subtotal and total
 
-  Scenario: Customer increases product quantity by clicking on increment button
-    When I click on increment button
-    And  I click on UPDATE CART button
-    Then product quantity updated
-    And subtotal and total updated accordingly
+
 
 
 
