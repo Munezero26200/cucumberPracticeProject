@@ -14,5 +14,5 @@ Feature: Registration functionality
 
     Examples:
       | credentialSet | expectedMessage                |
-      | 1             | Hello Js (not Js? Log out)   |
-      | 2             | Hello Cs (not Cs? Log out) |
+      | 1             | Hello Ja (not Ja? Log out)   |
+      | 2             | Hello Ca (not Ca? Log out) |
