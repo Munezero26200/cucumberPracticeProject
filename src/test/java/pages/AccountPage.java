@@ -42,7 +42,7 @@ public class AccountPage extends BasePage{
     }
     public void checkYouReachOnDashboard(){
         WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
-        reachDashboard.isDisplayed();
+        reachDashboard.getText();
     }
     public String getWelcomeMsg(){
         return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
