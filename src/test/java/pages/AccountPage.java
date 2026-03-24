@@ -44,7 +44,7 @@ public class AccountPage extends BasePage{
     public void checkYouReachOnDashboard()  {
 //        WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
 //         reachDashboard.getText();
-        wait.until(ExpectedConditions.urlContains("/my-account"));
+        wait.until(ExpectedConditions.urlContains("/account"));
         WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("(//nav[@class='woocommerce-MyAccount-navigation']//ul/li/a)[1]")
         ));
