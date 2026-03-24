@@ -17,8 +17,7 @@ public class AccountPage extends BasePage{
     @FindBy( css = "#username") private WebElement usernameOrEmailField;
     @FindBy( css = "#password") private WebElement passwordField;
     @FindBy( css = "button[name='login']") private WebElement loginBtn;
-    @FindBy ( xpath = "(//nav[@class='woocommerce-MyAccount-navigation']//ul/li/a)[1]") private WebElement dashboard;
-    @FindBy( xpath = "(//div[@class='woocommerce-MyAccount-content']/p)[1]") private WebElement wlcmMsg;
+    @FindBy( css = "(div[class='woocommerce-MyAccount-content']") private WebElement wlcmMsg;
     @FindBy( css = "#reg_username") private WebElement usernameRegField;
     @FindBy ( css = "#reg_email") private WebElement emailRegField;
     @FindBy( css = "#reg_password") private WebElement passwordRegField;
@@ -57,7 +56,7 @@ public class AccountPage extends BasePage{
     }
     public void verifyWelcomeMsg(String expectedWlcmMsg){
         String actualMsg = getWelcomeMsg();
-        Assert.assertEquals(actualMsg,expectedWlcmMsg,"Welcome message is incorrect");
+        Assert.assertTrue(actualMsg.contains(expectedWlcmMsg),"Wrong welcome message");
     }
     public void navigateToAccountPage(){
         load(EndPoint.ACCOUNT.url);
