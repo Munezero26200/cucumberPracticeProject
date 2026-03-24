@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class AccountPage extends BasePage{
@@ -40,7 +41,8 @@ public class AccountPage extends BasePage{
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
         loginButton.click();
     }
-    public void checkYouReachOnDashboard(){
+    public void checkYouReachOnDashboard() throws InterruptedException {
+        Thread.sleep(5000);
         WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
         reachDashboard.getText();
     }
