@@ -13,6 +13,6 @@ Feature: Registration functionality
     And  I should see a welcome message says "<expectedMessage>"
 
     Examples:
-      | credentialSet | expectedMessage                |
-      | 1             | Hello Jw (not Jx? Log out)   |
-      | 2             | Hello Cw (not Cx? Log out) |
+      | credentialSet | expectedMessage            |
+      | 1             | Hello Jz (not Jz? Log out) |
+      | 2             | Hello Cz (not Cz? Log out) |
