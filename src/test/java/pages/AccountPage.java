@@ -42,8 +42,14 @@ public class AccountPage extends BasePage{
         loginButton.click();
     }
     public void checkYouReachOnDashboard()  {
-        WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
-         reachDashboard.getText();
+//        WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
+//         reachDashboard.getText();
+        wait.until(ExpectedConditions.urlContains("/my-account"));
+        WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("(//nav[@class='woocommerce-MyAccount-navigation']//ul/li/a)[1]")
+        ));
+        dashboardNav.getText();
+
     }
     public String getWelcomeMsg(){
         return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
