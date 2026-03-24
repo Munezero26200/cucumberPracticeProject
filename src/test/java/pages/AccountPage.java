@@ -42,9 +42,9 @@ public class AccountPage extends BasePage{
         loginButton.click();
     }
     public void checkYouReachOnDashboard() throws InterruptedException {
-        Thread.sleep(5000);
+       // Thread.sleep(5000);
         WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
-        reachDashboard.getText();
+        //System.out.println("Dashboard text: " + reachDashboard.getText());
     }
     public String getWelcomeMsg(){
         return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
