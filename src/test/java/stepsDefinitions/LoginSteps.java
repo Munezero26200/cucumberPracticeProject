@@ -43,7 +43,7 @@ public void enterCredentials(Username usernameOrEmail, Password password) {
     }
 
     @Then("I should be on Dashboard")
-    public void iShouldBeOnDashboard() throws InterruptedException {
+    public void iShouldBeOnDashboard() {
         accountPage.checkYouReachOnDashboard();
     }
 

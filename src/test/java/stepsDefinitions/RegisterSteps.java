@@ -40,9 +40,4 @@ public class RegisterSteps {
         accountPage.clickRegisterBtn();
     }
 
-
-    @Then("I should be on Dashboard")
-    public void iShouldBeOnDashboard() throws InterruptedException {
-        accountPage.checkYouReachOnDashboard();
-    }
 }

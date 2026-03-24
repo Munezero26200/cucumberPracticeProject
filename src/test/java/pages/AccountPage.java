@@ -41,10 +41,9 @@ public class AccountPage extends BasePage{
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
         loginButton.click();
     }
-    public void checkYouReachOnDashboard() throws InterruptedException {
-       // Thread.sleep(5000);
+    public void checkYouReachOnDashboard()  {
         WebElement reachDashboard = wait.until(ExpectedConditions.visibilityOf(dashboard));
-        //System.out.println("Dashboard text: " + reachDashboard.getText());
+         reachDashboard.getText();
     }
     public String getWelcomeMsg(){
         return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
