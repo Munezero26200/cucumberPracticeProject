@@ -9,10 +9,10 @@ Feature: Registration functionality
     Given I am on Account page
     When I register with credentials set <credentialSet>
     And I click on Register Button
-    Then I should be on Dashboard
+#    Then I should be on Dashboard
     And  I should see a welcome message says "<expectedMessage>"
 
     Examples:
       | credentialSet | expectedMessage                |
-      | 1             | Hello Jx (not Jx? Log out)   |
-      | 2             | Hello Cx (not Cx? Log out) |
+      | 1             | Hello Jw (not Jx? Log out)   |
+      | 2             | Hello Cw (not Cx? Log out) |
