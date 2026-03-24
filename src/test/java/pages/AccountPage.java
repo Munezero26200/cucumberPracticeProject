@@ -17,7 +17,7 @@ public class AccountPage extends BasePage{
     @FindBy( css = "#username") private WebElement usernameOrEmailField;
     @FindBy( css = "#password") private WebElement passwordField;
     @FindBy( css = "button[name='login']") private WebElement loginBtn;
-    @FindBy(xpath = "//div[@class='woocommerce-MyAccount-content']/p") private WebElement wlcmMsg;
+    @FindBy( css = "div.woocommerce-MyAccount-content") private WebElement wlcmMsg;
     @FindBy( css = "#reg_username") private WebElement usernameRegField;
     @FindBy ( css = "#reg_email") private WebElement emailRegField;
     @FindBy( css = "#reg_password") private WebElement passwordRegField;
