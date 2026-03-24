@@ -41,6 +41,7 @@ public void enterCredentials(Username usernameOrEmail, Password password) {
     public void clickLoginBtn() {
          accountPage.clickLoginBtn();
     }
+
     @Then("I should be on Dashboard")
     public void iShouldBeOnDashboard() throws InterruptedException {
         accountPage.checkYouReachOnDashboard();

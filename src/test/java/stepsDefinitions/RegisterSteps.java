@@ -2,6 +2,7 @@ package stepsDefinitions;
 
 import factory.DriverFactory;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pages.AccountPage;
@@ -37,5 +38,11 @@ public class RegisterSteps {
     @And("I click on Register Button")
     public void clickOnRegisterBtn() {
         accountPage.clickRegisterBtn();
+    }
+
+
+    @Then("I should be on Dashboard")
+    public void iShouldBeOnDashboard() throws InterruptedException {
+        accountPage.checkYouReachOnDashboard();
     }
 }
