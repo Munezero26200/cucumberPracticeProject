@@ -57,7 +57,7 @@ public class RegisterSteps {
     }
 
 
-    @Then("I should see a welcome message says {string}")
+    @And("I should see a welcome message says {string}")
     public void wlcmMsgDisplayed(String expectedWlcmMsg) {
         accountPage.verifyWelcomeMsg(expectedWlcmMsg);
     }
