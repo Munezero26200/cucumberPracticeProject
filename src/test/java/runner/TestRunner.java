@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
         glue = {"stepsDefinitions","customParameter", "domainobj","hooks"},
         plugin = {"pretty","html:target/cucumber.html","summary",
                   "html:target/cucumber/cucumber.html"},
-        tags = "@login"
+        tags = "@register"
 
 
 
