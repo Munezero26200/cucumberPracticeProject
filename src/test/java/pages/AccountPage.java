@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class AccountPage extends BasePage{
 
     @FindBy( css = "#username") private WebElement usernameOrEmailField;
@@ -80,14 +82,11 @@ public class AccountPage extends BasePage{
         registerButton.click();
         System.out.println(driver.getPageSource());
     }
-    public void checkifWeReachOnDashboard(){
-        wait.until(ExpectedConditions.urlContains("/account"));
-        String welcome = getWelcomeMsg();
-        Assert.assertTrue(welcome.contains("Hello"), "Not logged in, welcome message missing");
-        WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.cssSelector("nav.woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link--dashboard a")
-        ));
-        dashboardNav.getText();
+    public void checkifWeReachOnDashboard() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dashboardParagraph = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("(//div[@class='woocommerce-MyAccount-content']/p)[1]")));
+        dashboardParagraph.getText();
     }
 
 

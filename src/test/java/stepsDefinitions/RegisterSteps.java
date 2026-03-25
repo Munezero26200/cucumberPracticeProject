@@ -53,7 +53,9 @@ public class RegisterSteps {
     @Then("I should be on Dashboard page")
     public void iShouldBeOnDashboardPage() {
         accountPage.checkifWeReachOnDashboard();
+
     }
+
 
     @Then("I should see a welcome message says {string}")
     public void wlcmMsgDisplayed(String expectedWlcmMsg) {
