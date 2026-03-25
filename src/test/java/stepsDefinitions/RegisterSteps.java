@@ -1,6 +1,7 @@
 package stepsDefinitions;
 
 import factory.DriverFactory;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -41,4 +42,8 @@ public class RegisterSteps {
         accountPage.clickRegisterBtn();
     }
 
+    @Then("I should be on Dashboard page")
+    public void iShouldBeOnDashboardPage() {
+        accountPage.checkifWeReachOnDashboard();
+    }
 }

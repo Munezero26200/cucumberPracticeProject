@@ -9,7 +9,7 @@ Feature: Registration functionality
     Given I am on Account page
     When I register with credentials set <credentialSet>
     And I click on Register Button
-    Then I should be on Dashboard
+    Then I should be on Dashboard page
     Then I should see a welcome message says "<expectedMessage>"
 
     Examples:

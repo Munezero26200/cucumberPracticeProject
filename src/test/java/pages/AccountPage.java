@@ -80,6 +80,16 @@ public class AccountPage extends BasePage{
         registerButton.click();
         System.out.println(driver.getPageSource());
     }
+    public void checkifWeReachOnDashboard(){
+        wait.until(ExpectedConditions.urlContains("/account"));
+        String welcome = getWelcomeMsg();
+        Assert.assertTrue(welcome.contains("Hello"), "Not logged in, welcome message missing");
+        //then check dashboard nav
+        WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("nav.woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link--dashboard a")
+        ));
+        dashboardNav.getText();
+    }
 
 
 }
