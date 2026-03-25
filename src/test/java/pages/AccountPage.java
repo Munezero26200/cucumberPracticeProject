@@ -12,12 +12,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class AccountPage extends BasePage{
 
     @FindBy( css = "#username") private WebElement usernameOrEmailField;
     @FindBy( css = "#password") private WebElement passwordField;
     @FindBy( css = "button[name='login']") private WebElement loginBtn;
-    @FindBy( css = "div.woocommerce-MyAccount-content") private WebElement wlcmMsg;
+    @FindBy( xpath = "(//div[@class='woocommerce-MyAccount-content']/p)[1]") private WebElement wlcmMsg;
     @FindBy( css = "#reg_username") private WebElement usernameRegField;
     @FindBy ( css = "#reg_email") private WebElement emailRegField;
     @FindBy( css = "#reg_password") private WebElement passwordRegField;
@@ -52,12 +54,11 @@ public class AccountPage extends BasePage{
     }
     public String getWelcomeMsg(){
         System.out.println(wlcmMsg.getText());
-//        return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
-        return "";
+        return wait.until(ExpectedConditions.visibilityOf(wlcmMsg)).getText();
     }
     public void verifyWelcomeMsg(String expectedWlcmMsg){
         String actualMsg = getWelcomeMsg();
-       // Assert.assertTrue(actualMsg.contains(expectedWlcmMsg),"Wrong welcome message");
+       Assert.assertTrue(actualMsg.contains(expectedWlcmMsg),"Wrong welcome message");
     }
     public void navigateToAccountPage(){
         load(EndPoint.ACCOUNT.url);
@@ -81,14 +82,11 @@ public class AccountPage extends BasePage{
         registerButton.click();
         System.out.println(driver.getPageSource());
     }
-    public void checkifWeReachOnDashboard(){
-        wait.until(ExpectedConditions.urlContains("/account"));
-        String welcome = getWelcomeMsg();
-        Assert.assertTrue(welcome.contains("Hello"), "Not logged in, welcome message missing");
-//        WebElement dashboardNav = wait.until(ExpectedConditions.visibilityOfElementLocated(
-//                By.cssSelector("nav.woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link--dashboard a")
-//        ));
-//        dashboardNav.getText();
+    public void checkifWeReachOnDashboard() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(9000));
+        WebElement dashboardParagraph = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("(//div[@class='woocommerce-MyAccount-content']/p)[1]")));
+        dashboardParagraph.getText();
     }
 
 
