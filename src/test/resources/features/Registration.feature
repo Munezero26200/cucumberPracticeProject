@@ -14,5 +14,5 @@ Feature: Registration functionality
 
     Examples:
       | credentialSet | expectedMessage            |
-      | 1             | Hello dp (not dp? Log out) |
-      | 2             | Hello fw (not fw? Log out) |
+      | 1             | Hello sw (not sw? Log out) |
+      | 2             | Hello hw (not hw? Log out) |
