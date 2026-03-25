@@ -3,7 +3,6 @@ package pages;
 import DomainObj.Product;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +16,7 @@ public class StorePage extends BasePage{
     }
 
     @FindBy(css = "button[name='add-to-cart']") private WebElement addToCartBtn;
-
+    @FindBy(xpath = "//span[@class='count']") private WebElement cartIcon;
 
 
 
@@ -37,18 +36,15 @@ public class StorePage extends BasePage{
             ));
             addToCartBtn.click();
 
-
+            // confirms item was added(by seeing the view cart link)
             wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(@aria-label,'" + product + "') and contains(@class,'added')]")
             ));
         }
     }
 
-    public void clickOnCartIcon() {
-        By cartIcon = By.xpath("(//span[@class='count'])[1]");
+    public void clickOnCartIcon(){
         WebElement visibleCartIcon = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", visibleCartIcon);
         visibleCartIcon.click();
     }
-
 }
