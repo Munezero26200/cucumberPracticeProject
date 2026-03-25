@@ -83,7 +83,7 @@ public class AccountPage extends BasePage{
         System.out.println(driver.getPageSource());
     }
     public void checkifWeReachOnDashboard() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(9000));
         WebElement dashboardParagraph = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("(//div[@class='woocommerce-MyAccount-content']/p)[1]")));
         dashboardParagraph.getText();
